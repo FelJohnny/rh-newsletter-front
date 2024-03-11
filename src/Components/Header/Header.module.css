@@ -1,0 +1,76 @@
+.header{
+    margin: 0.8rem;
+    border-radius: 4px;
+    background-color: #FFFF;
+    filter: drop-shadow(0 0 0.15rem rgb(124, 124, 124));
+    
+}
+
+.nav{
+    height: 4.5rem;
+    display: flex;
+    gap: 100px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav img{
+    height: 6rem;
+}
+
+.nav button{
+    color: white;
+    border: none;
+    background-color: #01426A;
+    padding: 10px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+
+
+.nav input{
+    padding: 9px 5px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: none;
+    outline: none ;
+    color: #626262;
+    background-color: #E8E8E8;
+    transition: 0.3s;   
+    width: 100% ;
+}
+
+.nav button:hover{
+    transform: scale(1.05);
+}
+
+.nav input:active{
+    transform: scale(1.02);
+}
+
+@media (max-width:850px){
+    .nav{
+       display: grid;
+       grid-template-columns: 2fr 1fr;
+       grid-template-areas:
+       "logo logo"
+       "pesquisa login";
+       height: auto;
+       padding-bottom:20px ;
+       justify-content: center;
+       gap: 15px;
+    }
+    .nav img{
+        grid-area: logo ;
+
+    }
+    .nav input{
+        grid-area: pesquisa;
+    }
+
+    .nav button{
+        grid-area: login;
+    }
+}
