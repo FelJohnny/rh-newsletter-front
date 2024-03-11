@@ -1,10 +1,11 @@
 import React from 'react'
+import Button from '../Forms/Button/Button'
 
 const Home = () => {
   return (
-    <div>
-      Home
-    </div>
+    <section className={`container`}>
+      <h1>Amalfis News</h1>
+    </section>
   )
 }
 
