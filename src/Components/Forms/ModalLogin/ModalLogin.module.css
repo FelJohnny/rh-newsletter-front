@@ -1,0 +1,62 @@
+.containerModal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    margin: 0px;
+    padding: 0;
+    top: 0;
+    left: 0;
+    background-color: #66666670;
+    z-index: 1;
+}
+
+.modal{
+    position: relative;
+    height: 25rem;
+    width: 22rem;
+    margin: 0 20px;
+    border-radius: 4px;
+    background: rgb(255, 255, 255);
+    transition: 1s;
+    animation-name: fade;
+    animation-duration: 400ms;
+    
+}
+
+@keyframes fade {
+    from{
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to{
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+.close{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7rem;
+    border: solid 2px white;
+    color: white;
+    height: 3rem;
+    width: 3rem;
+    right: -20px;
+    top: -20px;
+    border-radius:50%;
+    background-color: #01426A;
+    cursor: pointer;
+    
+}
+
+
+.close:hover{
+    transform: scale(1.05);
+    transition: 0.3s;
+}

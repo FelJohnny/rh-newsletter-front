@@ -1,0 +1,47 @@
+.boxPost{
+    display: grid;
+    grid-template-rows: 1fr 300px 1fr;
+    align-items: center;
+    width: 21rem;
+    margin-bottom: 2rem;
+    background-color: rgb(255, 255, 255);
+    border-radius:4px ;
+    filter: drop-shadow(0 0 0.15rem rgb(124, 124, 124));
+    padding: 1rem;
+    
+}
+.boxPost img{
+    background-color: aqua;
+    height: 300px;
+    border-radius: 4px;
+    border-image-slice: fill;
+    
+}
+
+.boxPost div{
+    display: flex;
+    padding-top: 1rem;
+    justify-content: space-between;
+    
+}
+
+.boxPost h3{
+    font-size: 1.7rem;
+    
+}
+
+.boxPost div button{
+        color: white;
+        border: none;
+        background-color: #01426A;
+        padding: 10px 30px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: 0.3s;
+    
+}
+
+.boxPost div button:hover{
+    transform: scale(1.05);
+}
+
