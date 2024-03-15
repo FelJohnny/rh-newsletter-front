@@ -10,7 +10,7 @@ body{
   --Type-second: 'Spectral', georgia;
   font-family: var(--type-first);
   background-color: #FFFF;
-
+  margin-bottom: 50px;
 }
 
 

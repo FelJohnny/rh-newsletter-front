@@ -1,17 +1,20 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import style from './PostOpeningContainer.module.css'
 
 const PostOpeningContainer = (props) => {
+const modalContainerPost = useRef(null)
 
     function closeModal(event){
         event.preventDefault()
-        props.setPostModal(!props.postModal)
+        if(event.target !== modalContainerPost.current){
+          props.setPostModal(!props.postModal)
+        } 
+
       }
   return (
-    <div className={style.containerPostOp}>
-        <div className={style.modalPostOp}>
+    <div onClick={closeModal} className={style.containerPostOp}>
+        <div ref={modalContainerPost} className={style.modalPostOp}>
         <button className={style.close} onClick={closeModal}>X</button>
-
         </div>
     </div>
   )

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import style from './Home.module.css'
 import PostContainer from '../PostContainer/PostContainer'
 import PostOpeningContainer from '../PostOpeningContainer/PostOpeningContainer';
+import PaginationContainer from '../Pagination/PaginationContainer';
 const Home = () => {
 
   const [postModal, setPostModal] = useState(false);
@@ -22,6 +23,8 @@ const Home = () => {
           <PostContainer setPostModal={setPostModal} postModal={postModal}/>
         </div>
         {postModal ? <PostOpeningContainer setPostModal={setPostModal} postModal={postModal}/> : ''}
+        <PaginationContainer />
+      
     </section>
   )
 }

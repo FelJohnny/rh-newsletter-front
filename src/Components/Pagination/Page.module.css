@@ -1,0 +1,19 @@
+.page{
+    align-items: center;
+    box-shadow: 0 0 2px 2px rgb(236, 236, 236);
+    border-radius: 2px;
+    border: solid 1px rgba(185, 185, 185, 0.767);
+    color: #626262;
+    display: flex;
+    font-size: 1.3rem;
+    height: 45px;
+    justify-content: center;
+    width: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.page:first-child, .page:last-child{
+    background-color: #01426A;
+    color: white;
+}

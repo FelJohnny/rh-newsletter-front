@@ -21,7 +21,21 @@
 }
 
 .postList{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    
+    
+}
+
+@media (max-width: 1075px) {
+    .postList{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 660px) {
+    .postList{
+        grid-template-columns: 1fr;
+    }
 }
