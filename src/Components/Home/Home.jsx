@@ -1,12 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import style from './Home.module.css'
 import PostContainer from '../PostContainer/PostContainer'
 import PostOpeningContainer from '../PostOpeningContainer/PostOpeningContainer';
 import PaginationContainer from '../Pagination/PaginationContainer';
+import { GET_ALL } from '../../API/api'
+
 const Home = () => {
 
-  const [postModal, setPostModal] = useState(false);
-  
+const [postModal, setPostModal] = useState(false);
+const [dadosPost, setDadosPost] = useState([]);
+const [loading, setLoading] = useState(false)
+
+useEffect(()=>{
+  async function api(){
+    const data = GET_ALL("posts")
+    setLoading(true)
+    const api = fetch(data.url)
+    const resposta = await (await api).json();
+    setLoading(false)
+    setDadosPost(resposta)
+
+  }
+  api()
+},[])
+
   return (
     <section className={`${style.home} container`}>
       <h1>Amalfis News</h1>
@@ -15,12 +32,12 @@ const Home = () => {
         <h3>Filtrar</h3>
       </div>
         <div className={style.postList}>
-          <PostContainer setPostModal={setPostModal} postModal={postModal}/>
-          <PostContainer setPostModal={setPostModal} postModal={postModal}/>
-          <PostContainer setPostModal={setPostModal} postModal={postModal}/>
-          <PostContainer setPostModal={setPostModal} postModal={postModal}/>
-          <PostContainer setPostModal={setPostModal} postModal={postModal}/>
-          <PostContainer setPostModal={setPostModal} postModal={postModal}/>
+        {loading ?<h3>Carregando...</h3>:''}       
+          {dadosPost.map(dado=>(
+            <div key={dado.id}>
+              <PostContainer setPostModal={setPostModal} postModal={postModal} dadosPost={dado}/>
+            </div>
+        ))}
         </div>
         {postModal ? <PostOpeningContainer setPostModal={setPostModal} postModal={postModal}/> : ''}
         <PaginationContainer />
@@ -28,5 +45,4 @@ const Home = () => {
     </section>
   )
 }
-
 export default Home
