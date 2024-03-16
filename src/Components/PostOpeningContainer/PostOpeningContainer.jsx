@@ -1,8 +1,18 @@
 import React, { useRef } from 'react'
 import style from './PostOpeningContainer.module.css'
+import useFetch from '../../Api/useFetch'
+import { GET_TO_ID } from '../../Api/api'
 
 const PostOpeningContainer = (props) => {
 const modalContainerPost = useRef(null)
+const {data,loading,error,request} = useFetch()
+console.log(props);
+
+React.useEffect(()=>{
+const {url,options} = GET_TO_ID('posts',14)
+request(url,options)
+},[])
+
 
     function closeModal(event){
         event.preventDefault()

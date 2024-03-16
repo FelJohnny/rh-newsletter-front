@@ -1,14 +1,22 @@
 import React from 'react'
 import style from './PostContainer.module.css'
+import { formataData } from '../../functions/formataData';
 
 const PostContainer = (props) => {
+  const {content,setCurrentPost} = props
+  
+  function handleClick(){
+    props.setPostModal(!props.postModal)
+    setCurrentPost(content.id)
+  }
+
   return (
     <div className={style.boxPost}>
-      <h3>Titulo</h3>
-      <img src="https://t3.ftcdn.net/jpg/05/85/86/44/360_F_585864419_kgIYUcDQ0yiLOCo1aRjeu7kRxndcoitz.jpg" alt="ImagemPost" />
+      <h3>{content.titulo_post}</h3>
+      <img src={content.img_post} alt="ImagemPost" />
       <div>
-        <h4>10/03/2024</h4>
-        <button onClick={()=> props.setPostModal(!props.postModal)}>Ver Noticia</button>
+        <h4>{formataData(content.createdAt)}</h4>
+        <button onClick={handleClick}>Ver Noticia</button>
       </div>
     </div>
   )
