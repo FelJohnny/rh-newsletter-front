@@ -15,6 +15,7 @@
 
 .modalPostOp{
     position: relative;
+    padding: 30px;
     height: 90%;
     width: 80%;
     margin: 0 20px;
@@ -23,6 +24,37 @@
     transition: 1s;
     animation-name: fade;
     animation-duration: 400ms;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.modalPostOp h3{
+  grid-column: 1/3;
+  font-size: 2.5rem;
+}
+
+
+
+.title img{
+ border-radius: 5px;
+}
+
+
+.description{
+ display: flex;
+ flex-direction: column;
+  justify-content: space-between;
+  border-left:2px solid #01426A;
+  padding-left: 20px;
+}
+
+.description p{
+  font-size: 1.5rem;
+}
+
+button{
+ grid-column: 1/3;
 }
 
 .close{
