@@ -6,10 +6,6 @@ import PaginationContainer from '../Pagination/PaginationContainer';
 
 const Home = () => {
 
-const [postModal, setPostModal] = useState(false);
-const [dadosPost, setDadosPost] = useState([]);
-const [loading, setLoading] = useState(false)
-
   return (
     <section className={`${style.home} container`}>
       <h1>Amalfis News</h1>
