@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './PostContainer.module.css'
 
 const PostContainer = (props) => {
+if(props.dadosPost)
   return (
+        
     <div className={style.boxPost}>
-      <h3>Titulo</h3>
-      <img src="https://t3.ftcdn.net/jpg/05/85/86/44/360_F_585864419_kgIYUcDQ0yiLOCo1aRjeu7kRxndcoitz.jpg" alt="ImagemPost" />
+      <h3>{props.dadosPost.titulo_post}</h3>
+      <img src={props.dadosPost.img_post} alt="ImagemPost" />
       <div>
-        <h4>10/03/2024</h4>
+        <h4>Criado: {props.dadosPost.createdAt}</h4>
         <button onClick={()=> props.setPostModal(!props.postModal)}>Ver Noticia</button>
       </div>
     </div>

@@ -15,6 +15,6 @@ const PaginationContainer = () => {
       <Page page=">"/>
   </div>
   )
-
 }
+
 export default PaginationContainer
