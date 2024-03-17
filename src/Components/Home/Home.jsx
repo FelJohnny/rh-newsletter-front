@@ -3,26 +3,12 @@ import style from './Home.module.css'
 import PostContainer from '../PostContainer/PostContainer'
 import PostOpeningContainer from '../PostOpeningContainer/PostOpeningContainer';
 import PaginationContainer from '../Pagination/PaginationContainer';
-import { GET_ALL } from '../../API/api'
 
 const Home = () => {
 
 const [postModal, setPostModal] = useState(false);
 const [dadosPost, setDadosPost] = useState([]);
 const [loading, setLoading] = useState(false)
-
-useEffect(()=>{
-  async function api(){
-    const data = GET_ALL("posts")
-    setLoading(true)
-    const api = fetch(data.url)
-    const resposta = await (await api).json();
-    setLoading(false)
-    setDadosPost(resposta)
-
-  }
-  api()
-},[])
 
   return (
     <section className={`${style.home} container`}>
