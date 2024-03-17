@@ -30,6 +30,7 @@ const Home = () => {
       <div className={`${style.filtrar} container`}>
         <h3>Filtrar</h3>
       </div>
+      
       <div className={style.postList}>
           {data && data.map((post,id)=>{
           return <PostContainer key={id}

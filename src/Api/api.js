@@ -1,6 +1,10 @@
+const port = 3333
+const url = "http://18.231.121.86"
+
+
 export function GET_ALL(tableName){
     return{
-        url:`http://localhost:3333/${tableName}`,
+        url:`${url}:${port}/${tableName}`,
         mode: 'cors',
         options:{
             method: "GET",
@@ -13,7 +17,7 @@ export function GET_ALL(tableName){
 
 export function GET_TO_ID(tableName,id){
     return{
-        url:`http://localhost:3333/${tableName}/${id}`,
+        url:`${url}:${port}/${tableName}/${id}`,
         mode: 'cors',
         options:{
             method: "GET",
