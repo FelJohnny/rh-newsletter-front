@@ -1,21 +1,30 @@
 .boxPost{
     display: grid;
-    grid-template-rows: 1fr 300px 1fr;
+    grid-template-rows: 50px 300px 65px;
     align-items: center;
-  
     margin-bottom: 2rem;
     background-color: rgb(255, 255, 255);
     border-radius:4px ;
     filter: drop-shadow(0 0 0.15rem rgb(173, 173, 173));
     padding: 1rem;
-    
+    transition: 0.1s;
+}
+
+.boxPost:hover{
+    transform: scale(1.05);
 }
 .boxPost img{
-    background-color: aqua;
+    background-color: rgb(202, 202, 202);
     height: 300px;
-    object-fit: cover;
+    object-fit:cover;
+    width: 100%;
     border-radius: 4px;
     border-image-slice: fill;
+    
+}
+
+.boxPost h3{
+    font-size: 1.2rem;
     
 }
 
@@ -23,23 +32,21 @@
     display: flex;
     padding-top: 1rem;
     justify-content: space-between;
+    align-items: center;
     
 }
 
-.boxPost h3{
-    font-size: 1.7rem;
-    
-}
 
 .boxPost div button{
-        color: white;
-        border: none;
-        background-color: #01426A;
-        padding: 10px 30px;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: 0.3s;
-    
+    color: white;
+    border: none;
+    width: 180px;
+    background-color: #01426A;
+    padding: 15px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+
 }
 
 .boxPost div button:hover{

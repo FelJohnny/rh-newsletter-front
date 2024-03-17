@@ -25,7 +25,6 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 16px;
     
-    
 }
 
 @media (max-width: 1075px) {
@@ -34,8 +33,16 @@
     }
 }
 
-@media (max-width: 660px) {
+@media (max-width: 750px) {
     .postList{
         grid-template-columns: 1fr;
     }
+    .home h1{
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    .home h2{
+        font-size: 1.5rem;
+    }
+    
 }

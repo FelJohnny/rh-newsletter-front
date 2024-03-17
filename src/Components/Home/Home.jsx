@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import style from './Home.module.css'
 import PostContainer from '../PostContainer/PostContainer'
 import PostOpeningContainer from '../PostOpeningContainer/PostOpeningContainer';
@@ -41,12 +41,10 @@ const Home = () => {
            />
         
           })}
-
-        </div>
+       
         {postModal ? <PostOpeningContainer currentPost={currentPost} setPostModal={setPostModal} postModal={postModal}/> : ''}
         <PaginationContainer />
     </section>
   )
 }
-
 export default Home
