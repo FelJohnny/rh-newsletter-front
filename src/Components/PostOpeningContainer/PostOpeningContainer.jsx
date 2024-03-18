@@ -7,6 +7,7 @@ import { Loading } from "../Helper/Loading/Loading";
 
 const PostOpeningContainer = (props) => {
   const modalContainerPost = useRef(null);
+  const CloseContainerPost = useRef(null);
   const { data, loading, error, request } = useFetch();
 
   React.useEffect(() => {
@@ -16,17 +17,17 @@ const PostOpeningContainer = (props) => {
 
   function closeModal(event) {
     event.preventDefault();
-    if (event.target !== modalContainerPost.current) {
-      props.setPostModal(!props.postModal);
+    if(event.target === modalContainerPost.current || event.target === CloseContainerPost.current){
+      props.setPostModal(!props.postModal)
     }
   }
 
-  if (loading) <Loading />;
+  if (loading) <Loading />
   if (data)
     return (
-      <div onClick={closeModal} className={style.containerPostOp}>
-        <section ref={modalContainerPost} className={style.modalPostOp}>
-          <button className={style.close} onClick={closeModal}>
+      <div ref={modalContainerPost} onClick={closeModal}className={style.containerPostOp}>
+        <section  className={style.modalPostOp}>
+          <button ref={CloseContainerPost} className={style.close} onClick={closeModal}>
             X
           </button>
 
@@ -36,7 +37,8 @@ const PostOpeningContainer = (props) => {
           </div>
 
           <div className={style.description}>
-            <p>{data.descricao_post}</p>
+            
+            <p><h4>Descrição:</h4>{data.descricao_post}</p>
           </div>
           <Button>Baixar Anexos</Button>
         </section>

@@ -18,7 +18,6 @@ const PostContainer = (props) => {
       <div>
         <h4>{formataData(content.createdAt)}</h4>
         <button onClick={handleClick}>Ver Noticia</button>
-
       </div>
     </div>
   )
