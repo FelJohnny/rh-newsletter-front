@@ -33,7 +33,6 @@
     padding-top: 1rem;
     justify-content: space-between;
     align-items: center;
-    
 }
 
 
@@ -52,6 +51,7 @@
 .boxPost div button:hover{
     transform: scale(1.05);
 }
+
 
 
 @media (max-width: 1075px) {

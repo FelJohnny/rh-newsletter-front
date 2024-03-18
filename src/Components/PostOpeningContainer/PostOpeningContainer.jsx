@@ -1,47 +1,47 @@
-import React, { useRef } from 'react'
-import style from './PostOpeningContainer.module.css'
-import useFetch from '../../Api/useFetch'
-import { GET_TO_ID } from '../../Api/api'
-import Button from '../Forms/Button/Button'
+import React, { useRef } from "react";
+import style from "./PostOpeningContainer.module.css";
+import useFetch from "../../Api/useFetch";
+import { GET_TO_ID } from "../../Api/api";
+import Button from "../Forms/Button/Button";
+import { Loading } from "../Helper/Loading/Loading";
 
 const PostOpeningContainer = (props) => {
-const modalContainerPost = useRef(null)
-const {data,loading,error,request} = useFetch()
+  const modalContainerPost = useRef(null);
+  const { data, loading, error, request } = useFetch();
 
-React.useEffect(()=>{
-const {url,options} = GET_TO_ID('posts',14)
-request(url,options)
-},[])
+  React.useEffect(() => {
+    const { url, options } = GET_TO_ID("posts", props.currentPost);
+    request(url, options);
+  }, []);
 
+  function closeModal(event) {
+    event.preventDefault();
+    if (event.target !== modalContainerPost.current) {
+      props.setPostModal(!props.postModal);
+    }
+  }
 
-    function closeModal(event){
-        event.preventDefault()
-        if(event.target !== modalContainerPost.current){
-          console.log(event.target,modalContainerPost.current);
-          props.setPostModal(!props.postModal)
-        } 
-
-      }
-  return (
-    <div onClick={closeModal} className={style.containerPostOp}>
+  if (loading) <Loading />;
+  if (data)
+    return (
+      <div onClick={closeModal} className={style.containerPostOp}>
         <section ref={modalContainerPost} className={style.modalPostOp}>
-          <button className={style.close} onClick={closeModal}>X</button>
+          <button className={style.close} onClick={closeModal}>
+            X
+          </button>
 
-          <h3>Aniversariantes do Mês de Março</h3>
-          <div className={style.title}>
-            <img src="https://t3.ftcdn.net/jpg/05/85/86/44/360_F_585864419_kgIYUcDQ0yiLOCo1aRjeu7kRxndcoitz.jpg" alt="" />
+          <h3>{data.titulo_post}</h3>
+          <div className={style.imagem}>
+            <img src={data.img_post} alt="" />
           </div>
-          
+
           <div className={style.description}>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-              Similique iure laborum magni mollitia minima nostrum voluptatem 
-              fuga asperiores ullam placeat, modi non et ea doloribus nisi!</p>
+            <p>{data.descricao_post}</p>
           </div>
-            <Button>Baixar Anexos</Button>
-          
+          <Button>Baixar Anexos</Button>
         </section>
-    </div>
-  )
-}
+      </div>
+    );
+};
 
-export default PostOpeningContainer
+export default PostOpeningContainer;

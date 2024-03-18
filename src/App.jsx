@@ -1,23 +1,22 @@
-import './App.css'
-import Header from './Components/Header/Header'
-import { BrowserRouter, Routes, Route} from "react-router-dom";
-import Home from './Components/Home/Home';
-import React from 'react';
-
-
+import "./App.css";
+import Header from "./Components/Header/Header";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Components/Home/Home";
+import React from "react";
+import NewPost from "./Components/NewPost/NewPost";
 
 function App() {
-
   return (
     <>
-      <Header/>
+      <Header />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home/>}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/adm" element={<NewPost />} />
         </Routes>
       </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

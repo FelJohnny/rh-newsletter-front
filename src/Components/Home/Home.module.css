@@ -1,15 +1,3 @@
-.home h1, h2{
-    color: #626262;
-}
-
-.home h1{
-    font-size: 4.5rem;
-    margin-bottom: 1rem;
-}
-
-.home h2{
-    font-size: 2.7rem;
-}
 
 .filtrar{
     display: flex;

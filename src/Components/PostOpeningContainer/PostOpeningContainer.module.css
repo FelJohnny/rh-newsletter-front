@@ -1,93 +1,98 @@
-.containerPostOp{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    margin: 0px;
-    padding: 0;
-    top: 0;
-    left: 0;
-    background-color: #66666670;
-    z-index: 1;
+.containerPostOp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  margin: 0px;
+  padding: 0;
+  top: 0;
+  left: 0;
+  background-color: #66666670;
+  z-index: 1;
 }
 
-.modalPostOp{
-    position: relative;
-    padding: 30px;
-    height: 90%;
-    width: 80%;
-    margin: 0 20px;
-    border-radius: 4px;
-    background: rgb(255, 255, 255);
-    transition: 1s;
-    animation-name: fade;
-    animation-duration: 400ms;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+.modalPostOp {
+  position: relative;
+  padding: 30px;
+  height: 90%;
+  width: 80%;
+  margin: 0 20px;
+  border-radius: 4px;
+  background: rgb(255, 255, 255);
+  transition: 1s;
+  animation-name: fade;
+  animation-duration: 400ms;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
-.modalPostOp h3{
+.modalPostOp h3 {
   grid-column: 1/3;
   font-size: 2.5rem;
+  align-self: center;
+  justify-self: center;
+}
+.imagem{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
-
-.title img{
- border-radius: 5px;
+.imagem img {
+  border-radius: 5px;
+  max-height: 400px;
+  object-fit: cover;
+  align-self: center;
 }
 
-
-.description{
- display: flex;
- flex-direction: column;
+.description {
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  border-left:2px solid #01426A;
+  border-left: 2px solid #01426a;
   padding-left: 20px;
 }
 
-.description p{
+.description p {
   font-size: 1.5rem;
 }
 
-button{
- grid-column: 1/3;
+button {
+  grid-column: 1/3;
 }
 
-.close{
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.7rem;
-    border: solid 2px white;
-    color: white;
-    height: 3rem;
-    width: 3rem;
-    right: -20px;
-    top: -20px;
-    border-radius:50%;
-    background-color: #01426A;
-    cursor: pointer;
-    
+.close {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+  border: solid 2px white;
+  color: white;
+  height: 3rem;
+  width: 3rem;
+  right: -45px;
+  top: -20px;
+  border-radius: 50%;
+  background-color: #01426a;
+  cursor: pointer;
 }
 
-
-.close:hover{
-    transform: scale(1.05);
-    transition: 0.3s;
+.close:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
 }
 
 @keyframes fade {
-    from{
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    to{
-      opacity: 1;
-      transform: scale(1);
-    }
+  from {
+    opacity: 0;
+    transform: scale(0.9);
   }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

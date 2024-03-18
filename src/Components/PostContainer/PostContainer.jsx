@@ -7,7 +7,7 @@ const PostContainer = (props) => {
   
   function handleClick(){
     props.setPostModal(!props.postModal)
-    setCurrentPost(content.id)
+    setCurrentPost(content.id)// atualiza o click do post atual para a id do post
   }
 
   return (
