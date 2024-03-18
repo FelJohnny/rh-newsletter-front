@@ -27,3 +27,41 @@ export function GET_TO_ID(tableName,id){
         }
     }
 }
+
+export function POST_DATA(tableName,data){
+    return{
+        url:`${url}:${port}/${tableName}/${id}`,
+        mode: 'cors',
+        options:{
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }
+    }
+}
+
+export function UPDATE_DATA(tableName,updateData,id){
+    return{
+        url:`${url}:${port}/${tableName}/${id}`,
+        mode: 'cors',
+        options:{
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updateData)
+        }
+    }
+}
+
+export function DELETE_DATA(tableName,id){
+    return{
+        url:`${url}:${port}/${tableName}/${id}`,
+        mode: 'cors',
+        options:{
+            method: "DELETE",
+        }
+    }
+}
