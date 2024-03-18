@@ -26,7 +26,7 @@ const Input = ({ dados }) => {
 
   return (
     <div className={style.input}>
-      <label htmlFor={name}>{label}</label>
+      <label className={style.label} htmlFor={name}>{label}</label>
       <RenderInput />
     </div>
   );
