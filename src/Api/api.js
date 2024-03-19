@@ -5,7 +5,6 @@ const url = "http://18.231.121.86"
 export function GET_ALL(tableName){
     return{
         url:`${url}:${port}/${tableName}`,
-        mode: 'cors',
         options:{
             method: "GET",
             headers: {
@@ -18,7 +17,6 @@ export function GET_ALL(tableName){
 export function GET_TO_ID(tableName,id){
     return{
         url:`${url}:${port}/${tableName}/${id}`,
-        mode: 'cors',
         options:{
             method: "GET",
             headers: {
@@ -31,7 +29,6 @@ export function GET_TO_ID(tableName,id){
 export function POST_DATA(tableName,data){
     return{
         url:`${url}:${port}/${tableName}/${id}`,
-        mode: 'cors',
         options:{
             method: "POST",
             headers: {
@@ -45,7 +42,6 @@ export function POST_DATA(tableName,data){
 export function UPDATE_DATA(tableName,updateData,id){
     return{
         url:`${url}:${port}/${tableName}/${id}`,
-        mode: 'cors',
         options:{
             method: "PUT",
             headers: {
@@ -59,7 +55,6 @@ export function UPDATE_DATA(tableName,updateData,id){
 export function DELETE_DATA(tableName,id){
     return{
         url:`${url}:${port}/${tableName}/${id}`,
-        mode: 'cors',
         options:{
             method: "DELETE",
         }
