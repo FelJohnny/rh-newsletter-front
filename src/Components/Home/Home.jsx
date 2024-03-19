@@ -17,27 +17,23 @@ const Home = () => {
     request(url, options);
   }, []);
   //============================//
-
   const [postModal, setPostModal] = useState(false);
   const [currentPost, setCurrentPost] = useState(null);
-  const [visibleItens,setVisibleItens] = useState(3)
-  const [activeButton,setActiveButton] = useState(false)
+  const [visibleItens, setVisibleItens] = useState(6);
 
- 
   if (loading) return <Loading />;
   if (error) return <Error error={error} />;
 
   return (
     <section className={`${style.home} container`}>
-      <Title title="Amalfis News" subtitle="Ultimas Noticias"/>
+      <Title title="Amalfis News" subtitle="Ultimas Noticias" />
       <div className={`${style.filtrar} container`}>
         <h3>Filtrar</h3>
       </div>
 
-  
       <div className={style.postList}>
         {data &&
-          data.slice(0,visibleItens).map((post, id) => {
+          data.slice(0, visibleItens).map((post, id) => {
             return (
               <PostContainer
                 key={id}
@@ -59,13 +55,12 @@ const Home = () => {
       ) : (
         ""
       )}
-     <SeeMore 
-       setVisibleItens={setVisibleItens} 
-       visibleItens={visibleItens}
-       activeButton={activeButton}
-       />
+      <SeeMore
+        setVisibleItens={setVisibleItens}
+        data={data}
+        visibleItens={visibleItens}
+      />
     </section>
   );
- 
 };
 export default Home;
