@@ -1,0 +1,27 @@
+.popup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    width: 17rem;
+    position: fixed;
+    top: 40px;
+    right: 20px;
+    background-color: rgb(30, 184, 150);
+    font-weight: bold;
+    animation: ativa 500ms forwards;
+    border-radius: 4px;
+    color: rgb(255, 255, 255);
+}
+
+@keyframes ativa {
+    from {
+        opacity: 0;
+        transform: translateX(600px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+  }

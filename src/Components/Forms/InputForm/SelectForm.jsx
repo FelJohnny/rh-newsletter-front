@@ -32,7 +32,7 @@ if(data)
           >Selecione</option>
             
         {data.map((option, index)=>{
-            return <option key={index}>{option.nome}</option>
+            return <option key={option.id}>{option.id} - {option.nome}</option>
             })}
         </select>
         {error && <p className={style.error}>{error}</p>}

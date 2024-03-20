@@ -8,7 +8,7 @@ const validacao = {
     message: 'Preencha um email válido'
   },
   senha:{
-    regex:/^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%*()_+^&}{:;?.])(?:([0-9a-zA-Z])(?!\1)|[!@#$%;*(){}_+^&]){6,}$/
+    regex:/^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*()_+])[a-zA-Z0-9!@#$%^&*()_+]{6,}$/
     ,
     message: 'Preencha com pelo menos uma letra, numero ou caractere especial [ a-A, 1, @ ]'
   }
