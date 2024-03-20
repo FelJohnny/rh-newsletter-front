@@ -50,9 +50,9 @@
 }
 
 .imagem img {
-  height: 100%;
-
-  object-fit: fill;
+  
+  width: 100%;
+  object-fit: cover;
   border-radius: 5px;
 }
 
@@ -107,5 +107,26 @@
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@media(max-width:700px){
+
+  .modalPostOp h3 {
+    max-height: 5px;
+    font-size: 30px;
+    margin-bottom: 15px;
+
+  }
+  .modalPostOp {
+    padding: 7px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+
+  }
+  .close {
+    right: -5px;
+    top: -5px;
   }
 }
