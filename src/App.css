@@ -36,6 +36,18 @@ img{
 input{
   display: block;
 }
+
+input:hover,
+input:focus,
+select:hover,
+select:focus{
+  display: block;
+  outline: none;
+  background-color: white;
+  box-shadow: 0 0 0 1px #53a9df, 0 0 0 2px #01629eb2;
+}
+
+
 button{
   display: block;
   font-size: 1rem;
