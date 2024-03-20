@@ -30,7 +30,7 @@ const NewUser = () => {
         <InputForm label={'Usuario: '} name={'user'} type={'text'} {...userForm}/>
         <InputForm label={'Senha: '} name={'senha'} type={'password'} {...senhaForm}/>
         <InputForm label={'Confirmar Senha: '} name={'senha2'} type={'password'} {...senha2Form}/>
-        <SelectForm label={"Nivel de Permissão: "}/>
+        <SelectForm label={"Nivel de Permissão: "} name='rules'/>
         <Button>Cadastrar</Button>
       </form>
     </section>

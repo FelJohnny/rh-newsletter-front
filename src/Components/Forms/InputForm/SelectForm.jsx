@@ -7,7 +7,7 @@ const SelectForm = ({name, label}) => {
     const {data,loading,error,request} = useFetch()
 
     useEffect(()=>{
-    const {url,options} = GET_ALL('rules')
+    const {url,options} = GET_ALL(name)
     request(url,options)
     },[])
 
