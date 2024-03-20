@@ -11,3 +11,8 @@
 .button:hover{
     transform: scale(1.05);
 }
+
+.button:disabled{
+    background-color: gray;
+    transform: none;
+}

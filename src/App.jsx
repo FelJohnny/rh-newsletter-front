@@ -4,11 +4,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import React from "react";
 import NewPost from "./Components/NewPost/NewPost";
+import { GlobalStorage } from "./Components/Context/GlobalContext";
 import NewUser from "./Components/NewUser/NewUser";
+
 
 function App() {
   return (
-    <>
+    <GlobalStorage>
       <Header />
       <BrowserRouter>
         <Routes>
@@ -17,7 +19,7 @@ function App() {
           <Route path="/novo-usuario" element={<NewUser/>} />
         </Routes>
       </BrowserRouter>
-    </>
+    </GlobalStorage>
   );
 }
 
