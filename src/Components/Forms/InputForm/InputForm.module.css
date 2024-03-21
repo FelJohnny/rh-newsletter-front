@@ -9,8 +9,7 @@
 }
 
 .input,
-.select,
-.inputImage {
+.select{
   height: 40px;
   padding: 9px 5px;
   font-size: 1.1rem;
@@ -22,6 +21,8 @@
   transition: 0.3s;
   width: 100%;
 }
+
+
 
 textarea.input{
   resize: none;
@@ -35,12 +36,37 @@ textarea.input{
   justify-content: center;
   align-items: center;
   gap: 10px;
+  background-color: #e8e8e8;
+  padding: 20px;
+  height: 400px;
+  position: relative;
 }
 
-.preview img {
+
+.preview .previewImg {
   border-radius: 5px;
-  width: 90%;
+  z-index: 100;
 }
+
+.plus{
+ position: absolute;
+ max-width: 200px;
+ transition: .5s;
+}
+
+.plus:hover{
+  transform: scale(1.1);
+  transition: .5s;
+}
+
+.preview input{
+ opacity: 0;
+ width: 100%;
+ height: 100%;
+ position: absolute;
+}
+
+
 
 .label {
   display: block;

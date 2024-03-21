@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import style from "../InputForm/InputForm.module.css";
+import plus from "../../../images/plus.svg";
 
 const ImagemForm = ({ label, name }) => {
   const [image, setImage] = useState(null);
@@ -21,11 +22,20 @@ const ImagemForm = ({ label, name }) => {
     <div className={style.wrapper}>
       <label htmlFor={name} className={style.label}>
         {label}
+     
+      <div className={style.preview}>
+        <input
+          className={style.inputImage}
+          id={name}
+          type="file"
+          onChange={handleChange}
+        />
+        <img htmlFor={name} className={style.plus} src={plus} alt="" />
+        {image && (
+          <img className={style.previewImg} src={image} alt="preview" />
+        )}
+      </div>
       </label>
-        <input className={style.inputImage} type="file" onChange={handleChange} />
-        <div className={style.preview}>
-         {image && <img src={image} alt="preview" /> } 
-        </div>
     </div>
   );
 };
