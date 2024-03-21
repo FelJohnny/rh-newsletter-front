@@ -7,7 +7,6 @@ import style from "./InputForm.module.css";
 const SelectForm = ({ name, label, value, onChange, onBlur }) => {
   const { data, loading, error, request } = useFetch();
 
-
   useEffect(() => {
     const { url, options } = GET_ALL(name);
     request(url, options);
