@@ -3,8 +3,10 @@ import useFetch from "../../../Api/useFetch";
 import { GET_ALL } from "../../../Api/api";
 import style from "./InputForm.module.css";
 
+
 const SelectForm = ({ name, label, value, onChange, onBlur }) => {
   const { data, loading, error, request } = useFetch();
+
 
   useEffect(() => {
     const { url, options } = GET_ALL(name);
@@ -18,23 +20,25 @@ const SelectForm = ({ name, label, value, onChange, onBlur }) => {
           {label}
         </label>
 
-        <select
+        <select 
           className={style.select}
-          id={name}
-          name={name}
           onChange={onChange}
-          value={value}
           onBlur={onBlur}
+          value={value}
         >
-          <option value="" disabled>
-            Selecione
-          </option>
-          {data.map((option, index) => {
-            return <option key={index}>{option.nome}</option>;
-          })}
+          <option 
+            disabled
+            value=""
+          >Selecione</option>
+            
+        {data.map((option, index)=>{
+            return <option key={option.id}>{option.id} - {option.nome}</option>
+            })}
         </select>
-      </div>
-    );
-};
+        {error && <p className={style.error}>{error}</p>}
+    </div>
+  )
+}
+
 
 export default SelectForm;

@@ -28,7 +28,7 @@ export function GET_TO_ID(tableName,id){
 
 export function POST_DATA(tableName,data){
     return{
-        url:`${url}:${port}/${tableName}/${id}`,
+        url:`${url}:${port}/${tableName}`,
         options:{
             method: "POST",
             headers: {

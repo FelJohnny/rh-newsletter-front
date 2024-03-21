@@ -1,15 +1,28 @@
+.containerNewUser{
+    
+    
+}
 
-.form{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    gap: 10px;
-    padding: 20px;
-    background: red;
+.containerForm{
+    display: flex;
+    justify-content: center;
     margin: 0.8rem 0;
     background-color: #fff;
     border-radius: 4px;
     filter: drop-shadow(0 0 0.15rem rgb(180, 180, 180));
+    padding: 20px;
+
+}
+
+.form{
+    padding-top: 30px;
+    width: 750px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    
+
 
 }
 
@@ -22,7 +35,8 @@
     grid-row: 5;
     grid-column: 2;
     justify-self: right;
-    align-self: end;
+    align-self: flex-start;
+    padding: 15px 30px;
 }
 
 @media (max-width: 500px){
