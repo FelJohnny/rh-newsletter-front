@@ -18,7 +18,7 @@ const ImagemForm = ({ label, name }) => {
   }
 
   return (
-    <div className={style.imagem}>
+    <div className={style.wrapper}>
       <label htmlFor={name} className={style.label}>
         {label}
       </label>

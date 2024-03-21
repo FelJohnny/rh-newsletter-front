@@ -6,12 +6,17 @@ import InputForm from "../Forms/InputForm/InputForm.jsx";
 import useForm from "../../Hooks/useForm/useForm.jsx";
 import SelectForm from "../Forms/InputForm/SelectForm.jsx";
 import ImagemForm from "../Forms/InputForm/ImagemForm.jsx";
+import TextAreaForm from "../Forms/InputForm/TextAreaForm.jsx";
 
 const NewPost = () => {
   const titleForm = useForm();
   const descricaoForm = useForm();
+  const tagForm = useForm();
+  const anexoImage = useForm()
+
 
   function handleSubmit(e) {
+    console.log(anexoImage);
     e.preventDefault();
   }
 
@@ -19,24 +24,21 @@ const NewPost = () => {
     <section className={`${style.newPost} container`}>
       <Title title="+Novo Post" />
 
-      <form action="" className={style.form}>
+      <form action="" onSubmit={handleSubmit} className={style.form}>
         <div className={style.titulo}>
           <InputForm label="Titulo" name="titulo" type="text" {...titleForm} />
         </div>
         <div className={style.descricao}>
-          <InputForm
-            label="Descrição"
-            name="descricao"
-            type="textarea"
-            {...descricaoForm}
-          />
+         <TextAreaForm label="Descrição" name="descrição" {...descricaoForm} />
         </div>
-        <SelectForm label="Tag" name="tags" />
-        <InputForm label="Anexo" name="anexo_post" type="file" />
+        <SelectForm label="Tag" name="tags" {...tagForm} />
+        <InputForm label="Anexo" name="anexo_post" type="file"  />
         <div className={style.imagem}>
           <ImagemForm label="Imagem" name="imagem" />
         </div>
+        <Button>Postar</Button>
       </form>
+
     </section>
   );
 };
