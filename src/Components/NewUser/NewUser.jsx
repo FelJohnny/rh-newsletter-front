@@ -1,6 +1,7 @@
-import React from 'react'
-import Title from '../Title/Title'
-import style from './NewUser.module.css'
+import React from "react";
+import Title from "../Title/Title";
+import style from "./NewUser.module.css";
+
 
 import Button from '../Forms/Button/Button'
 import InputForm from '../Forms/InputForm/InputForm'
@@ -54,27 +55,53 @@ const NewUser = () => {
       }
     }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
 
   return (
     <section className={`${style.containerNewUser} container`}>
-      <Title title={"Novo Usuario"} subtitle={"Preencha os dados a seguir:"}/>
-
-      <form action="" onSubmit={handleSubmit} className={style.containerForm}>
-        <div className={style.form}>
-          <div className={style.nome}>
-              <InputForm label={'Nome Completo: '} name={'nome'} type={'text'} {...nameForm}/>
-          </div>
-          <InputForm label={'Email: '} name={'email'} type={'email'} {...emailForm}/>
-          <InputForm label={'Usuario: '} name={'user'} type={'text'} {...userForm}/>
-          <InputForm label={'Senha: '} name={'senha'} type={'password'} {...senhaForm}/>
-          <InputForm label={'Confirmar Senha: '} name={'senha2'} type={'password'} {...senha2Form}/>
-          <SelectForm label={"Nivel de Permissão: "} {...selectForm}/>
-          <Button>Cadastrar</Button>
+      <Title title={"Novo Usuario"} subtitle={"Preencha os dados a seguir:"} />
+      <form action="" onSubmit={handleSubmit} className={style.form}>
+        <div className={style.nome}>
+          <InputForm
+            label={"Nome Completo: "}
+            name={"nome"}
+            type={"text"}
+            {...nameForm}
+          />
         </div>
+        <InputForm
+          label={"Email: "}
+          name={"email"}
+          type={"email"}
+          {...emailForm}
+        />
+        <InputForm
+          label={"Usuario: "}
+          name={"user"}
+          type={"text"}
+          {...userForm}
+        />
+        <InputForm
+          label={"Senha: "}
+          name={"senha"}
+          type={"password"}
+          {...senhaForm}
+        />
+        <InputForm
+          label={"Confirmar Senha: "}
+          name={"senha2"}
+          type={"password"}
+          {...senha2Form}
+        />
+        <SelectForm label={"Nivel de Permissão: "} name="rules" />
+        <Button>Cadastrar</Button>
+
       </form>
           <PopUp popUp={popUp}>Cadastro realizado</PopUp>
     </section>
-  )
-}
+  );
+};
 
-export default NewUser
+export default NewUser;

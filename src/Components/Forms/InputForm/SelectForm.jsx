@@ -1,23 +1,23 @@
-import React, { useEffect } from 'react'
-import useFetch from '../../../Api/useFetch'
-import {GET_ALL} from '../../../Api/api'
-import style from './InputForm.module.css'
+import React, { useEffect } from "react";
+import useFetch from "../../../Api/useFetch";
+import { GET_ALL } from "../../../Api/api";
+import style from "./InputForm.module.css";
 
-const SelectForm = ({name, label, value, onChange, error, onBlur}) => {
-    const {data,loading,e,request} = useFetch()
 
-    useEffect(()=>{
-    const {url,options} = GET_ALL('rules')
-    request(url,options)
-    },[])
+const SelectForm = ({ name, label, value, onChange, onBlur }) => {
+  const { data, loading, error, request } = useFetch();
 
-if(data)
-  return (
-    <div>
-        <label 
-            htmlFor={name}
-            className={style.label}>
-            {label}
+
+  useEffect(() => {
+    const { url, options } = GET_ALL(name);
+    request(url, options);
+  }, []);
+
+  if (data)
+    return (
+      <div>
+        <label htmlFor={name} className={style.label}>
+          {label}
         </label>
 
         <select 
@@ -40,4 +40,5 @@ if(data)
   )
 }
 
-export default SelectForm
+
+export default SelectForm;

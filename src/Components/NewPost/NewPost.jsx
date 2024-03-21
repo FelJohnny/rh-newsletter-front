@@ -2,47 +2,43 @@ import React from "react";
 import Title from "../Title/Title.jsx";
 import style from "../NewPost/NewPost.module.css";
 import Button from "../Forms/Button/Button.jsx";
-import Input from "../Forms/Input/Input.jsx";
+import InputForm from "../Forms/InputForm/InputForm.jsx";
+import useForm from "../../Hooks/useForm/useForm.jsx";
+import SelectForm from "../Forms/InputForm/SelectForm.jsx";
+import ImagemForm from "../Forms/InputForm/ImagemForm.jsx";
+import TextAreaForm from "../Forms/InputForm/TextAreaForm.jsx";
 
 const NewPost = () => {
-  const inputs = [
-    {
-      label: "Titulo do Post",
-      type: "text",
-      name: "titulo_post",
-    },
-    {
-      label: "Descrição do post",
-      type: "textarea",
-      name: "descricao_post",
-    },
-    {
-      label: "Tag's",
-      type: "select",
-      name: "tags",
-      options: ["Tecnologia", "Entreterimento", "Noticias"],
-    },
-    {
-      label: "Anexo",
-      type: "file",
-      name: "anexo_post",
-    },
-    {
-      label: "Imagem",
-      type: "image",
-      name: "img_post",
-    },
-  ];
+  const titleForm = useForm();
+  const descricaoForm = useForm();
+  const tagForm = useForm();
+  const anexoImage = useForm()
+
+
+  function handleSubmit(e) {
+    console.log(anexoImage);
+    e.preventDefault();
+  }
 
   return (
     <section className={`${style.newPost} container`}>
       <Title title="+Novo Post" />
-      <div className={style.form}>
-        {inputs.map((dados, id) => {
-          return <Input dados={dados} />;
-        })}
-        <Button>Enviar</Button>
-      </div>
+
+      <form action="" onSubmit={handleSubmit} className={style.form}>
+        <div className={style.titulo}>
+          <InputForm label="Titulo" name="titulo" type="text" {...titleForm} />
+        </div>
+        <div className={style.descricao}>
+         <TextAreaForm label="Descrição" name="descrição" {...descricaoForm} />
+        </div>
+        <SelectForm label="Tag" name="tags" {...tagForm} />
+        <InputForm label="Anexo" name="anexo_post" type="file"  />
+        <div className={style.imagem}>
+          <ImagemForm label="Imagem" name="imagem" />
+        </div>
+        <Button>Postar</Button>
+      </form>
+
     </section>
   );
 };
