@@ -50,7 +50,7 @@ const NewUser = () => {
           setTimeout(() => {
             setPopUp(false)
           }, 4000);
-          //colocar fecth
+          
         }
       }
     }
