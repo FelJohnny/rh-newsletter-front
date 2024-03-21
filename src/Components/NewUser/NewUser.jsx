@@ -13,7 +13,7 @@ import { POST_DATA } from '../../Api/api'
 
 const NewUser = () => {
   const [popUp, setPopUp]=useState(false)
-  const {data,loading,e,request} = useFetch()
+  const {data,loading,error,request} = useFetch()
 
   const nameForm = useForm ('name')
   const emailForm = useForm ('email')
@@ -39,11 +39,12 @@ const NewUser = () => {
             status: true,
             email: emailForm.value,
             usuario: userForm.value,
-            rule: selectForm.value
+            rule_id: +selectForm.value.slice(0,2)
           }
           console.log(dados);
           const {url,options} = POST_DATA('usuarios',dados)
           request(url,options)
+          console.log(await error); 
           
           setPopUp(true)
           setTimeout(() => {
