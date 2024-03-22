@@ -27,7 +27,6 @@ export function GET_TO_ID(tableName,id){
 }
 
 export function POST_DATA(tableName,data){
-    console.log(JSON.stringify(data));
     return{
         url:`${url}:${port}/${tableName}`,
         options:{

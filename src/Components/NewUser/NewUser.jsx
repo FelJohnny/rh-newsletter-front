@@ -1,7 +1,6 @@
 import React from "react";
 import Title from "../Title/Title";
 import style from "./NewUser.module.css";
-
 import Button from "../Forms/Button/Button";
 import InputForm from "../Forms/InputForm/InputForm";
 import SelectForm from "../Forms/InputForm/SelectForm";
@@ -10,11 +9,12 @@ import PopUp from "../PopUp/PopUp";
 import { useState } from "react";
 import useFetch from "../../Api/useFetch";
 import { POST_DATA } from "../../Api/api";
+//mport { validaDuplicidadeDB } from "../../functions/validaDuplicidadeDB.jsx";
 
 const NewUser = () => {
   const [popUp, setPopUp] = useState(false);
   const { data, loading, error, request } = useFetch();
-
+  //validaDuplicidadeDB('usuarios',emailForm.value)//ARRUMAR
   const nameForm = useForm("name");
   const emailForm = useForm("email");
   const userForm = useForm("user");
@@ -24,8 +24,7 @@ const NewUser = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(selectForm);
-
+    
     if (
       nameForm.validate() &&
       emailForm.validate() &&
@@ -45,7 +44,8 @@ const NewUser = () => {
           usuario: userForm.value,
           rule_id: +selectForm.value.slice(0, 2),
         };
-        console.log(dados);
+
+        
         const { url, options } = POST_DATA("usuarios", dados);
         request(url, options);
 
