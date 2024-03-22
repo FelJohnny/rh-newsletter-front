@@ -45,7 +45,7 @@ const NewUser = () => {
           usuario: userForm.value,
           rule_id: +selectForm.value.slice(0, 2),
         };
-        console.log(dados);
+      e.log(dados);
         const { url, options } = POST_DATA("usuarios", dados);
         request(url, options);
 

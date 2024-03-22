@@ -47,6 +47,9 @@ textarea.input{
 .preview .previewImg {
   border-radius: 5px;
   z-index: 100;
+  width: 650px;
+  border:2px black;
+  border-style:dotted;
 }
 
 .plus{

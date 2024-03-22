@@ -12,12 +12,11 @@ const NewPost = () => {
   const titleForm = useForm();
   const descricaoForm = useForm();
   const tagForm = useForm();
-  const anexoImage = useForm()
-
+  const anexoImage = useForm();
 
   function handleSubmit(e) {
-    console.log(anexoImage);
     e.preventDefault();
+    console.log(anexoImage);
   }
 
   return (
@@ -29,16 +28,15 @@ const NewPost = () => {
           <InputForm label="Titulo" name="titulo" type="text" {...titleForm} />
         </div>
         <div className={style.descricao}>
-         <TextAreaForm label="Descrição" name="descrição" {...descricaoForm} />
+          <TextAreaForm label="Descrição" name="descrição" {...descricaoForm} />
         </div>
         <SelectForm label="Tag" name="tags" {...tagForm} />
-        <InputForm label="Anexo" name="anexo_post" type="file"  />
+        <InputForm label="Anexo" name="anexo_post" type="file" />
         <div className={style.imagem}>
-          <ImagemForm label="Imagem" name="imagem" />
+          <ImagemForm label="Imagem" name="imagem" {...anexoImage} />
         </div>
         <Button>Postar</Button>
       </form>
-
     </section>
   );
 };
