@@ -9,7 +9,10 @@ const TextAreaForm = ({
   onChange,
   error,
   onBlur,
+  setAnexoFile
 }) => {
+
+  
   return (
     <div className={style.wrapper}>
       <label htmlFor={name} className={style.label}>

@@ -4,7 +4,7 @@ import plus from "../../../images/plus.svg";
 import useFetch from "../../../Api/useFetch";
 import { POST_FILE } from "../../../Api/api";
 
-const ImagemForm = ({ label, name, type, value, onChange, onBlur,setFileImage }) => {
+const ImagemForm = ({ label, name, type, value, onChange,setFileImage }) => {
   const [image, setImage] = useState(null);
 
   function handleChange(event) {

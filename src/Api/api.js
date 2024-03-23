@@ -26,7 +26,6 @@ export function GET_TO_ID(tableName, id) {
 }
 
 export function POST_DATA(tableName, data) {
-  console.log(data);
   return {
     url: `${url}:${port}/${tableName}`,
     options: {
@@ -69,6 +68,19 @@ export function POST_FILE(tableName, file) {
     options: {
       method: "POST",
       body: formData,
+    },
+  };
+}
+
+export function GET_FILE(tableName,fileName) {
+  console.log(`${url}:${port}/${tableName}/${fileName}`);
+  return {
+    url: `${url}:${port}/${tableName}/${fileName}`,
+    options: {
+      method: "USE",
+      headers: {
+        Accept: "application/json",
+      },
     },
   };
 }

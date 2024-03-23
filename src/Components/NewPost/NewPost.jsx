@@ -9,43 +9,54 @@ import ImagemForm from "../Forms/InputForm/ImagemForm.jsx";
 import TextAreaForm from "../Forms/InputForm/TextAreaForm.jsx";
 import { POST_DATA, POST_FILE } from "../../Api/api.js";
 import useFetch from "../../Api/useFetch.jsx";
-import { setFileName } from "../../functions/setFileName.js";
 
 const NewPost = () => {
   const [fileImage, setFileImage] = React.useState(null);
-  const [imgFileName, setImgFileName] = React.useState(null);
+  const [anexoFile, setAnexoFile] = React.useState(null);
   const { data, error, loading, request } = useFetch();
 
   const titleForm = useForm();
   const descricaoForm = useForm();
   const tagForm = useForm();
   const anexoImage = useForm();
+  const anexoArquivo = useForm();
 
   async function handleSubmit(e) {
     e.preventDefault();
     //=============API===================//
-    const { url, options } = POST_FILE("upload", fileImage);
-    request(url, options);
-    setImgFileName(data);
+     const { url, options } = POST_FILE("upload", fileImage); 
+     const uploadDataImage = await request(url, options); 
+     const uploadDataAnexo = await postArquivo(anexoFile);
     //====================================//
 
-    if (imgFileName) postApi();
+    if (uploadDataImage && uploadDataImage.json) {
+      // Define o nome do arquivo retornado na resposta do upload
+      const uploadImageName = uploadDataImage.json;
+      const uploadAnexoName = uploadDataAnexo.json;
+
+      const dadosParaApi = {
+        titulo_post: titleForm.value,
+        descricao_post: descricaoForm.value,
+        anexo_post: uploadAnexoName,
+        usuario_post_id: 1,
+        img_post: uploadImageName, // Usando o valor retornado do upload
+        tag_id: +tagForm.value.slice(0, 3),
+      };
+
+      // Posta os dados para a API após o upload da imagem
+      postApi(dadosParaApi);
+    }
   }
 
-  function postApi() {
-    const dadosParaApi = {
-      titlo_post: titleForm.value,
-      descricao_post: descricaoForm.value,
-      anexo_post: "teste",
-      usuario_post_id: 1,
-      img_post: imgFileName,
-      tag_id: +tagForm.value.slice(0, 3),
-    };
+  async function postArquivo(anexoFile) {
+    const { url, options } = POST_FILE("upload", anexoFile);
+    const uploadData = await request(url, options);
+    return uploadData;
+  }
 
+  async function postApi(dadosParaApi) {
     const { url, options } = POST_DATA("posts", dadosParaApi);
-    request(url, options);
-
-
+    await request(url, options);
   }
 
   return (
@@ -60,7 +71,13 @@ const NewPost = () => {
           <TextAreaForm label="Descrição" name="descrição" {...descricaoForm} />
         </div>
         <SelectForm label="Tag" name="tags" {...tagForm} />
-        <InputForm label="Anexo" name="anexo_post" type="file" />
+        <InputForm
+          label="Anexo"
+          name="anexo_post"
+          type="file"
+          setAnexoFile={setAnexoFile}
+          {...anexoArquivo}
+        />
         <div className={style.imagem}>
           <ImagemForm
             label="Imagem"
