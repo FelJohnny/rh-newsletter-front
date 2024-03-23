@@ -4,19 +4,15 @@ import plus from "../../../images/plus.svg";
 import useFetch from "../../../Api/useFetch";
 import { POST_FILE } from "../../../Api/api";
 
-const ImagemForm = ({ label, name, type, value, onChange, onBlur }) => {
+const ImagemForm = ({ label, name, type, value, onChange, onBlur,setFileImage }) => {
   const [image, setImage] = useState(null);
-  const { data, error, loading, request } = useFetch();
 
   function handleChange(event) {
     const selectImage = event.target.files[0];
-
-    const { url, options } = POST_FILE("upload", selectImage);
-    request(url, options);
+    setFileImage(selectImage)
 
     if (selectImage) {
       const reader = new FileReader();
-
       reader.onload = () => {
         setImage(reader.result);
       };

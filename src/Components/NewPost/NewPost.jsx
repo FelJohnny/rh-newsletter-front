@@ -7,16 +7,45 @@ import useForm from "../../Hooks/useForm/useForm.jsx";
 import SelectForm from "../Forms/InputForm/SelectForm.jsx";
 import ImagemForm from "../Forms/InputForm/ImagemForm.jsx";
 import TextAreaForm from "../Forms/InputForm/TextAreaForm.jsx";
+import { POST_DATA, POST_FILE } from "../../Api/api.js";
+import useFetch from "../../Api/useFetch.jsx";
+import { setFileName } from "../../functions/setFileName.js";
 
 const NewPost = () => {
+  const [fileImage, setFileImage] = React.useState(null);
+  const [imgFileName, setImgFileName] = React.useState(null);
+  const { data, error, loading, request } = useFetch();
+
   const titleForm = useForm();
   const descricaoForm = useForm();
   const tagForm = useForm();
   const anexoImage = useForm();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    console.log(anexoImage);
+    //=============API===================//
+    const { url, options } = POST_FILE("upload", fileImage);
+    request(url, options);
+    setImgFileName(data);
+    //====================================//
+
+    if (imgFileName) postApi();
+  }
+
+  function postApi() {
+    const dadosParaApi = {
+      titlo_post: titleForm.value,
+      descricao_post: descricaoForm.value,
+      anexo_post: "teste",
+      usuario_post_id: 1,
+      img_post: imgFileName,
+      tag_id: +tagForm.value.slice(0, 3),
+    };
+
+    const { url, options } = POST_DATA("posts", dadosParaApi);
+    request(url, options);
+
+
   }
 
   return (
@@ -33,7 +62,12 @@ const NewPost = () => {
         <SelectForm label="Tag" name="tags" {...tagForm} />
         <InputForm label="Anexo" name="anexo_post" type="file" />
         <div className={style.imagem}>
-          <ImagemForm label="Imagem" name="imagem" {...anexoImage} />
+          <ImagemForm
+            label="Imagem"
+            name="imagem"
+            setFileImage={setFileImage}
+            {...anexoImage}
+          />
         </div>
         <Button>Postar</Button>
       </form>

@@ -24,7 +24,7 @@ const NewUser = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(selectForm);
+ 
 
     if (
       nameForm.validate() &&

@@ -26,6 +26,7 @@ export function GET_TO_ID(tableName, id) {
 }
 
 export function POST_DATA(tableName, data) {
+  console.log(data);
   return {
     url: `${url}:${port}/${tableName}`,
     options: {
@@ -63,7 +64,6 @@ export function DELETE_DATA(tableName, id) {
 export function POST_FILE(tableName, file) {
   const formData = new FormData();
   formData.append("file", file);
-  console.log(`${url}:${port}/${tableName}`);
   return {
     url: `${url}:${port}/${tableName}`,
     options: {
