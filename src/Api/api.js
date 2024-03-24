@@ -73,7 +73,6 @@ export function POST_FILE(tableName, file) {
 }
 
 export function GET_FILE(tableName,fileName) {
-  console.log(`${url}:${port}/${tableName}/${fileName}`);
   return {
     url: `${url}:${port}/${tableName}/${fileName}`,
     options: {

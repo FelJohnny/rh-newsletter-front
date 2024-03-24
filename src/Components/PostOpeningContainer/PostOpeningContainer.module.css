@@ -60,11 +60,15 @@
   grid-column: 2/2;
   grid-row: 2/2;
   display: flex;
+  height: 90%;
   flex-direction: column;
   justify-content: space-between;
   border-left: 2px solid #01426a;
   padding-left: 20px;
+  overflow-y: auto;
 }
+
+
 
 .description p {
   font-size: 1.5rem;

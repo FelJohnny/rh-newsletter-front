@@ -9,27 +9,37 @@ import ImagemForm from "../Forms/InputForm/ImagemForm.jsx";
 import TextAreaForm from "../Forms/InputForm/TextAreaForm.jsx";
 import { POST_DATA, POST_FILE } from "../../Api/api.js";
 import useFetch from "../../Api/useFetch.jsx";
+import PopUp from "../PopUp/PopUp.jsx";
+import { useNavigate } from "react-router-dom";
 
 const NewPost = () => {
   const [fileImage, setFileImage] = React.useState(null);
   const [anexoFile, setAnexoFile] = React.useState(null);
+  const [popUp, setPopUp] = React.useState(false);
+  let navigate = useNavigate();
   const { data, error, loading, request } = useFetch();
 
-  const titleForm = useForm();
-  const descricaoForm = useForm();
+  const titleForm = useForm("titulo");
+  const descricaoForm = useForm("descrição");
   const tagForm = useForm();
   const anexoImage = useForm();
-  const anexoArquivo = useForm();
+  const anexoArquivo = useForm(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
     //=============API===================//
-     const { url, options } = POST_FILE("upload", fileImage); 
-     const uploadDataImage = await request(url, options); 
-     const uploadDataAnexo = await postArquivo(anexoFile);
+    const { url, options } = POST_FILE("upload", fileImage);
+    const uploadDataImage = await request(url, options);
+    const uploadDataAnexo = await postArquivo(anexoFile);
     //====================================//
 
-    if (uploadDataImage && uploadDataImage.json) {
+    if (
+      uploadDataImage &&
+      uploadDataImage.json &&
+      titleForm.validate() &&
+      tagForm.validate() &&
+      descricaoForm.validate()
+    ) {
       // Define o nome do arquivo retornado na resposta do upload
       const uploadImageName = uploadDataImage.json;
       const uploadAnexoName = uploadDataAnexo.json;
@@ -45,6 +55,13 @@ const NewPost = () => {
 
       // Posta os dados para a API após o upload da imagem
       postApi(dadosParaApi);
+      setPopUp(true);
+      limpaForm();
+      navigate('/')
+
+      setTimeout(() => {
+        setPopUp(false);
+      }, 4000);
     }
   }
 
@@ -57,6 +74,14 @@ const NewPost = () => {
   async function postApi(dadosParaApi) {
     const { url, options } = POST_DATA("posts", dadosParaApi);
     await request(url, options);
+  }
+
+  function limpaForm() {
+    titleForm.reset();
+    descricaoForm.reset();
+    tagForm.reset();
+    anexoArquivo.reset();
+    anexoImage.reset();
   }
 
   return (
@@ -88,6 +113,7 @@ const NewPost = () => {
         </div>
         <Button>Postar</Button>
       </form>
+      <PopUp popUp={popUp}>Cadastro realizado</PopUp>
     </section>
   );
 };

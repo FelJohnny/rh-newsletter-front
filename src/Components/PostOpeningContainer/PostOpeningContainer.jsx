@@ -9,6 +9,7 @@ const PostOpeningContainer = (props) => {
   const modalContainerPost = useRef(null);
   const CloseContainerPost = useRef(null);
   const [patchImage, setPatchImage] = useState();
+  const [tagPost, setTagPost] = React.useState(null);
   const { data, loading, error, request } = useFetch();
 
   React.useEffect(() => {
@@ -16,9 +17,10 @@ const PostOpeningContainer = (props) => {
     request(url, options);
   }, []);
 
+
   const getImg = () => {
     const { url } = GET_FILE("files", data.img_post);
-    return url;
+    return url;;
   };
 
   function closeModal(event) {
@@ -47,7 +49,7 @@ const PostOpeningContainer = (props) => {
           >
             X
           </button>
-   
+
           <h3>{data.titulo_post}</h3>
           <div className={style.imagem}>
             <img src={getImg()} alt="" />

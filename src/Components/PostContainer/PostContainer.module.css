@@ -52,6 +52,17 @@
     transform: scale(1.05);
 }
 
+.tag{
+    position: absolute;
+    right: 0;
+    top: 28px;
+    background-color: #01426A;
+    padding: 4px;
+    border-radius: 5px 0 0 5px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
 
 
 @media (max-width: 1075px) {
