@@ -4,12 +4,13 @@ import useFetch from "../../Api/useFetch";
 import { GET_FILE, GET_TO_ID } from "../../Api/api";
 import Button from "../Forms/Button/Button";
 import { Loading } from "../Helper/Loading/Loading";
+import optionsIcon from "../../images/options.svg";
+import { Options } from "../Helper/Options/Options";
 
 const PostOpeningContainer = (props) => {
   const modalContainerPost = useRef(null);
   const CloseContainerPost = useRef(null);
-  const [patchImage, setPatchImage] = useState();
-  const [tagPost, setTagPost] = React.useState(null);
+  const [showOptions, setShowOptions] = useState(false);
   const { data, loading, error, request } = useFetch();
 
   React.useEffect(() => {
@@ -17,10 +18,9 @@ const PostOpeningContainer = (props) => {
     request(url, options);
   }, []);
 
-
   const getImg = () => {
     const { url } = GET_FILE("files", data.img_post);
-    return url;;
+    return url;
   };
 
   function closeModal(event) {
@@ -42,6 +42,14 @@ const PostOpeningContainer = (props) => {
         className={style.containerPostOp}
       >
         <section className={style.modalPostOp}>
+          <div className={style.optionsIcon}>
+            <img
+              onClick={() => setShowOptions(!showOptions)}
+              src={optionsIcon}
+              alt=""
+            />
+          </div>
+          {showOptions && <Options dataId={data.id} />}
           <button
             ref={CloseContainerPost}
             className={style.close}

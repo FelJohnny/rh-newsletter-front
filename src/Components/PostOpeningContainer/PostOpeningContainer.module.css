@@ -37,20 +37,18 @@
   align-self: center;
   justify-self: center;
 }
-.imagem{
+.imagem {
   grid-column: 1/2;
   grid-row: 2/2;
   background-color: #e7e7e770;
   display: flex;
   align-items: center;
   justify-content: center;
-  Overflow: hidden;
+  overflow: hidden;
   border-radius: 4px;
-
 }
 
 .imagem img {
-  
   height: 100%;
   object-fit: cover;
   border-radius: 5px;
@@ -68,14 +66,12 @@
   overflow-y: auto;
 }
 
-
-
 .description p {
   font-size: 1.5rem;
 }
 
-.containerPostOp button{
-  grid-row: 2/2  ;
+.containerPostOp button {
+  grid-row: 2/2;
   grid-column: 2/2;
   align-self: flex-end;
   justify-self: right;
@@ -92,7 +88,7 @@
   height: 3rem;
   width: 3rem;
   right: -45px;
-  top: -110px;
+  top: -100px;
   border-radius: 50%;
   background-color: #01426a;
   cursor: pointer;
@@ -101,6 +97,18 @@
 .close:hover {
   transform: scale(1.05);
   transition: 0.3s;
+}
+
+.optionsIcon {
+  position: absolute;
+  left: 25px;
+  top: 23px;
+  padding: 10px;
+}
+
+.optionsIcon img {
+  cursor: pointer;
+  width: 25px;
 }
 
 @keyframes fade {
@@ -114,20 +122,17 @@
   }
 }
 
-@media(max-width:700px){
-
+@media (max-width: 700px) {
   .modalPostOp h3 {
     max-height: 5px;
     font-size: 30px;
     margin-bottom: 15px;
-
   }
   .modalPostOp {
     padding: 7px;
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
-
   }
   .close {
     right: -5px;

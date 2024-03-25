@@ -57,7 +57,7 @@ const NewPost = () => {
       postApi(dadosParaApi);
       setPopUp(true);
       limpaForm();
-      navigate('/')
+      /*    navigate('/') */
 
       setTimeout(() => {
         setPopUp(false);
